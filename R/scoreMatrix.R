@@ -88,7 +88,7 @@ readBam = function(target, windows, rpm=FALSE,
                         isUnmappedQuery=FALSE, hasUnmappedMate=FALSE)
     #reads that map into window which stretches from start of the first windows to end of the last window
     if(is.null(param)){
-      param <- ScanBamParam(which=reduce(window, ignore.strand=TRUE), flag=flag)
+      param <- ScanBamParam(which=reduce(windows, ignore.strand=TRUE), flag=flag)
     }else{
       bamWhich(param) <- reduce(windows, ignore.strand=TRUE)
     }
@@ -122,7 +122,7 @@ readBam = function(target, windows, rpm=FALSE,
   }else{
     
     if(is.null(param)){
-      param <- ScanBamParam(which=reduce(window, ignore.strand=TRUE))
+      param <- ScanBamParam(which=reduce(windows, ignore.strand=TRUE))
     }else{
       bamWhich(param) <- reduce(windows, ignore.strand=TRUE)
     }
